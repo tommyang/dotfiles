@@ -18,6 +18,7 @@ declare -a FILES_TO_SYMLINK=(
     'shell/inputrc'
     'shell/screenrc'
     'shell/tmux.conf'
+    'shell/zshrc'
 
     'git/gitattributes'
     'git/gitconfig'
