@@ -34,7 +34,6 @@ ask_for_sudo() {
 
 cmd_exists() {
     command -v "$1" &> /dev/null
-    return $?
 }
 
 execute() {
@@ -49,12 +48,12 @@ get_answer() {
 get_os() {
 
     declare -r OS_NAME="$(uname -s)"
-    local os=''
+    local os=""
 
     if [ "$OS_NAME" == "Darwin" ]; then
-        os='osx'
+        os="osx"
     elif [ "$OS_NAME" == "Linux" ] && [ -e "/etc/lsb-release" ]; then
-        os='ubuntu'
+        os="ubuntu"
     else
         os="$OS_NAME"
     fi
@@ -69,7 +68,6 @@ get_os_arch() {
 
 is_git_repository() {
     git rev-parse &> /dev/null
-    return $?
 }
 
 mkd() {
@@ -124,4 +122,8 @@ print_result() {
 
 print_success() {
     print_in_green "  [✔] $1\n"
+}
+
+print_warning() {
+    print_in_yellow "  [!] $1\n"
 }
